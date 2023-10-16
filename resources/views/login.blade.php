@@ -10,20 +10,19 @@
                 class="img-fluid" alt="Sample image">
             </div>
             <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-
+             
 
               <form action="{{route('do.login')}}" method="POST">
               @csrf
 
                 <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
-                  <p class="lead fw-normal mb-0 me-3">Sign </p>
-                  <button type="button" class="btn btn-primary btn-floating mx-1">
-                    <i class="fab fa-linkedin-in"></i>
-                  </button>
-                </div>
+                  <p class="lead fw-normal mb-0 me-3">Sign </p>  
+                  <form action="{{route('do.login')}}" method="post">
+                    @csrf                                                                 </div>
       
-               
-      
+               <div>           
+                     @if (session()->has('message'))<h6>{{ session()->get('message') }} </h6>@endif
+               </div>
                 <!-- Email input -->
                 <div class="form-outline mb-4">
                   <input type="email"  class="form-control form-control-lg"  name="email" placeholder="Enter a valid email address" />

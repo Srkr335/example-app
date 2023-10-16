@@ -6,9 +6,11 @@
            @if(session()->has('message'))
            <p>{{ session()->get('message')}}</p>
            @endif
-
-            <table class="table">
+             <h4>welcome {{ auth()->user()->name }}</h4>
+            <a href="{{route('logout')}}" class="btn btn-danger">Logout</a>
               <a href="{{route('create.user')}}" class="btn btn-primary">New</a>
+              <table class="table">
+
                 <thead>
                   <tr>
                     <th scope="col">No</th>

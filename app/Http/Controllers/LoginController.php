@@ -9,7 +9,17 @@ class LoginController
         return view('login');
     }
     public function dologin(){
-        return view('login');
-    }
+        $input=['email'=>request('email'),'password'=>request('password')];
+     if(auth()->attempt($input,true)){
+        return redirect()->route('home');
+     }else{
+        return redirect()->route('login')->with('message','Login is Invalid');
+     }
+     } 
+     public function logout(){
+        auth()->logout();
+        return redirect()->route('login');
+
+     }
     
 }
